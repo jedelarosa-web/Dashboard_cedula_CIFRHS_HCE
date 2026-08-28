@@ -1,0 +1,1395 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Cédula CIFRHS de evaluación de campos clínicos para las 11 residencias médicas del Hospital Central del Estado de Chihuahua.">
+</head>
+<body>
+<title>Cédula CIFRHS · Residencias HCE</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+
+<style>
+:root{
+  --ground:#f4f6f5; --surface:#ffffff; --surface-2:#fafbfa; --surface-3:#eef1f0;
+  --ink:#16211f; --ink-2:#3f4b48; --ink-3:#66716e; --ink-4:#8a9491;
+  --line:#e0e5e3; --line-2:#ecefed;
+  --accent:#0e766c; --accent-deep:#0a544c; --accent-soft:#e3f0ee; --accent-ink:#0a4a44;
+  --plum:#6d4a86; --plum-soft:#efe8f4; --plum-ink:#54366a;
+  --ok:#2e7d52; --ok-bg:#e7f3ec; --ok-line:#bfe0cd;
+  --warn:#b1730f; --warn-bg:#fbf0da; --warn-line:#ecd6a6;
+  --bad:#b23428; --bad-bg:#fae9e6; --bad-line:#eec3bc;
+  --na:#6b7472; --na-bg:#edf0ef; --na-line:#d9dedc;
+  --shadow:0 1px 2px rgba(20,33,31,.05),0 8px 24px -14px rgba(20,33,31,.18);
+  --shadow-sm:0 1px 2px rgba(20,33,31,.06);
+  --radius:12px; --radius-sm:8px;
+  --fs-serif:"Newsreader",Georgia,serif;
+  --fs-sans:"IBM Plex Sans",system-ui,-apple-system,sans-serif;
+  --fs-mono:"IBM Plex Mono",ui-monospace,monospace;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --ground:#0e1413; --surface:#141b1a; --surface-2:#171f1d; --surface-3:#1e2725;
+    --ink:#e8edeb; --ink-2:#bcc6c3; --ink-3:#8f9a97; --ink-4:#707b78;
+    --line:#26302e; --line-2:#1d2523;
+    --accent:#3dbdb0; --accent-deep:#2aa89a; --accent-soft:#12302c; --accent-ink:#7ad7cc;
+    --plum:#b291c9; --plum-soft:#241a2c; --plum-ink:#c7abda;
+    --ok:#5cc487; --ok-bg:#122a1e; --ok-line:#1f4632;
+    --warn:#dca23f; --warn-bg:#2c2311; --warn-line:#4a3c1c;
+    --bad:#e0796c; --bad-bg:#2d1815; --bad-line:#4d2822;
+    --na:#8a9491; --na-bg:#1c2422; --na-line:#2a3331;
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 10px 30px -16px rgba(0,0,0,.6);
+    --shadow-sm:0 1px 2px rgba(0,0,0,.35);
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#0e1413; --surface:#141b1a; --surface-2:#171f1d; --surface-3:#1e2725;
+  --ink:#e8edeb; --ink-2:#bcc6c3; --ink-3:#8f9a97; --ink-4:#707b78;
+  --line:#26302e; --line-2:#1d2523;
+  --accent:#3dbdb0; --accent-deep:#2aa89a; --accent-soft:#12302c; --accent-ink:#7ad7cc;
+  --plum:#b291c9; --plum-soft:#241a2c; --plum-ink:#c7abda;
+  --ok:#5cc487; --ok-bg:#122a1e; --ok-line:#1f4632;
+  --warn:#dca23f; --warn-bg:#2c2311; --warn-line:#4a3c1c;
+  --bad:#e0796c; --bad-bg:#2d1815; --bad-line:#4d2822;
+  --na:#8a9491; --na-bg:#1c2422; --na-line:#2a3331;
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 10px 30px -16px rgba(0,0,0,.6);
+  --shadow-sm:0 1px 2px rgba(0,0,0,.35);
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--ground);color:var(--ink);
+  font-family:var(--fs-sans);font-size:15px;line-height:1.55;
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+}
+h1,h2,h3{margin:0;font-weight:600;text-wrap:balance}
+button{font-family:inherit;cursor:pointer}
+input,textarea,select{font-family:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.mono{font-family:var(--fs-mono);font-variant-numeric:tabular-nums}
+.wrap{max-width:1180px;margin:0 auto;padding:0 22px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+
+/* ---------- Masthead ---------- */
+.masthead{background:linear-gradient(180deg,var(--surface),var(--surface-2));border-bottom:1px solid var(--line)}
+.masthead .wrap{padding-top:24px;padding-bottom:22px}
+.crest{display:flex;align-items:center;gap:13px;margin-bottom:14px}
+.crest-mark{
+  width:42px;height:42px;border-radius:10px;flex:0 0 auto;
+  background:radial-gradient(120% 120% at 30% 20%,var(--accent),var(--accent-deep));
+  display:grid;place-items:center;box-shadow:var(--shadow-sm);
+}
+.crest-mark svg{width:24px;height:24px}
+.crest-txt .eyebrow{font-family:var(--fs-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-ink);font-weight:500}
+.crest-txt .org{font-size:12.5px;color:var(--ink-3);margin-top:1px}
+h1.title{font-family:var(--fs-serif);font-size:clamp(25px,3.6vw,36px);font-weight:500;line-height:1.1;letter-spacing:-.01em}
+.subtitle{color:var(--ink-2);font-size:15px;margin-top:8px;max-width:66ch}
+.subtitle b{color:var(--ink);font-weight:600}
+.legal-note{margin-top:12px;font-size:12.5px;color:var(--ink-3);border-left:2px solid var(--accent);padding-left:11px;max-width:80ch}
+
+/* ---------- Toolbar ---------- */
+.toolbar{position:sticky;top:0;z-index:40;background:color-mix(in srgb,var(--surface) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+@supports not (backdrop-filter:blur(1px)){.toolbar{background:var(--surface)}}
+.toolbar .wrap{display:flex;gap:8px;align-items:center;padding-top:11px;padding-bottom:11px;flex-wrap:wrap}
+.record-sel{display:flex;align-items:center;gap:8px;flex:1 1 auto;min-width:230px}
+.record-sel label{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);font-family:var(--fs-mono);white-space:nowrap}
+select.record{flex:1 1 auto;min-width:0;max-width:270px;padding:8px 11px;border-radius:var(--radius-sm);border:1px solid var(--line);background:var(--surface);color:var(--ink);font-size:13.5px;font-weight:500}
+.tbtn{display:inline-flex;align-items:center;gap:6px;padding:8px 11px;border-radius:var(--radius-sm);border:1px solid var(--line);background:var(--surface);color:var(--ink-2);font-size:13px;font-weight:500;transition:border-color .15s,color .15s,background .15s;white-space:nowrap}
+.tbtn:hover{border-color:var(--accent);color:var(--accent-ink)}
+.tbtn svg{width:15px;height:15px}
+.tbtn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+.tbtn.primary:hover{background:var(--accent-deep);color:#fff}
+.tbtn.ghost{border-color:transparent;background:transparent}
+.save-dot{font-size:11.5px;color:var(--ink-4);font-family:var(--fs-mono);display:inline-flex;align-items:center;gap:6px;margin-left:2px}
+.save-dot::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 3px var(--ok-bg)}
+
+/* ---------- Layout ---------- */
+main{padding:26px 0 90px}
+.grid{display:grid;grid-template-columns:minmax(0,1fr);gap:22px}
+.grid>*{min-width:0}
+
+/* ---------- Cards ---------- */
+.card{scroll-margin-top:86px;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow-sm);overflow:hidden}
+.card-head{padding:15px 20px;border-bottom:1px solid var(--line-2);display:flex;align-items:center;gap:12px;background:var(--surface-2);flex-wrap:wrap}
+.card-head .kicker{font-family:var(--fs-mono);font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:var(--accent-ink);font-weight:500}
+.card-head h2{font-family:var(--fs-serif);font-size:19px;font-weight:500;flex:1 1 auto}
+.card-head .hint{font-size:12px;color:var(--ink-3)}
+.idform{padding:18px 20px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px 18px}
+.field{display:flex;flex-direction:column;gap:5px;min-width:0}
+.field.full{grid-column:1/-1}
+.field.two{grid-column:span 2}
+.field label{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);font-family:var(--fs-mono);font-weight:500}
+.field input,.field select{padding:9px 11px;border:1px solid var(--line);border-radius:var(--radius-sm);background:var(--surface);font-size:14px;width:100%;transition:border-color .15s,box-shadow .15s}
+.field input:focus,.field select:focus,textarea:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
+.field .fnote{font-size:11px;color:var(--ink-4)}
+.badge{display:inline-flex;align-items:center;gap:5px;font-family:var(--fs-mono);font-size:11px;font-weight:500;padding:3px 9px;border-radius:999px;background:var(--accent-soft);color:var(--accent-ink);border:1px solid var(--accent-soft)}
+.badge.alt{background:var(--plum-soft);color:var(--plum-ink);border-color:var(--plum-soft)}
+
+/* ---------- Scoreboard ---------- */
+.scoreboard{display:grid;grid-template-columns:auto 1fr;gap:26px;padding:20px;align-items:center}
+.donut-wrap{display:flex;flex-direction:column;align-items:center;gap:8px}
+.donut{position:relative;width:132px;height:132px}
+.donut svg{transform:rotate(-90deg)}
+.donut .pct{position:absolute;inset:0;display:grid;place-content:center;text-align:center}
+.donut .pct .n{font-family:var(--fs-mono);font-size:30px;font-weight:600;line-height:1;letter-spacing:-.02em}
+.donut .pct .l{font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);margin-top:3px;font-family:var(--fs-mono)}
+.donut-caption{font-size:11.5px;color:var(--ink-3);text-align:center;max-width:150px}
+.tallies{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+.tally{display:flex;align-items:baseline;gap:7px;padding:8px 12px;border-radius:var(--radius-sm);border:1px solid var(--line);background:var(--surface-2)}
+.tally .n{font-family:var(--fs-mono);font-size:18px;font-weight:600}
+.tally .l{font-size:12px;color:var(--ink-3)}
+.tally.ok .n{color:var(--ok)} .tally.warn .n{color:var(--warn)}
+.tally.bad .n{color:var(--bad)} .tally.pend .n{color:var(--ink-3)}
+.cedbars{display:flex;flex-direction:column;gap:10px}
+.cedbar{display:grid;grid-template-columns:1fr auto;gap:4px 12px;align-items:center;cursor:pointer}
+.cedbar .cb-name{font-size:13px;font-weight:500;color:var(--ink-2)}
+.cedbar .cb-name b{font-family:var(--fs-mono);color:var(--accent-ink);font-weight:600;margin-right:7px;font-size:12px}
+.cedbar .cb-pct{font-family:var(--fs-mono);font-size:13px;font-weight:600;text-align:right;color:var(--ink)}
+.cedbar .track{grid-column:1/-1;height:7px;border-radius:99px;background:var(--surface-3);overflow:hidden}
+.cedbar .fill{height:100%;border-radius:99px;background:linear-gradient(90deg,var(--accent-deep),var(--accent));transition:width .5s cubic-bezier(.4,0,.2,1)}
+.cedbar:hover .cb-name{color:var(--accent-ink)}
+
+/* ---------- Comparativo entre especialidades ---------- */
+.cmp{padding:6px 20px 18px;overflow-x:auto;min-width:0;max-width:100%}
+table.cmp-tbl{width:100%;border-collapse:collapse;min-width:620px;font-size:13px}
+table.cmp-tbl th{text-align:left;font-family:var(--fs-mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);font-weight:500;padding:8px 9px;border-bottom:1.5px solid var(--line);white-space:nowrap}
+table.cmp-tbl td{padding:7px 9px;border-bottom:1px solid var(--line-2);vertical-align:middle}
+table.cmp-tbl tr.active td{background:var(--accent-soft)}
+table.cmp-tbl tr{cursor:pointer}
+table.cmp-tbl tr:hover td{background:var(--surface-2)}
+table.cmp-tbl tr.active:hover td{background:var(--accent-soft)}
+.cmp-name{font-weight:500}
+.cmp-sub{font-size:11px;color:var(--ink-4)}
+.minibar{width:130px;height:7px;border-radius:99px;background:var(--surface-3);overflow:hidden;display:inline-block;vertical-align:middle}
+.minibar i{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,var(--accent-deep),var(--accent))}
+.cmp-pct{font-family:var(--fs-mono);font-weight:600;font-variant-numeric:tabular-nums}
+.pill{display:inline-block;font-family:var(--fs-mono);font-size:11px;font-weight:600;padding:2px 8px;border-radius:999px;border:1px solid var(--line);color:var(--ink-3);background:var(--surface-2)}
+.pill.ok{color:var(--ok);background:var(--ok-bg);border-color:var(--ok-line)}
+.pill.warn{color:var(--warn);background:var(--warn-bg);border-color:var(--warn-line)}
+.pill.bad{color:var(--bad);background:var(--bad-bg);border-color:var(--bad-line)}
+
+/* ---------- Section ---------- */
+.section{scroll-margin-top:86px}
+.sec-head{width:100%;text-align:left;display:flex;align-items:center;gap:15px;padding:16px 20px;background:var(--surface-2);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow-sm);transition:border-color .15s}
+.sec-head:hover{border-color:var(--accent)}
+.sec-head[aria-expanded="true"]{border-bottom-left-radius:0;border-bottom-right-radius:0;border-bottom-color:var(--line-2)}
+.sec-num{font-family:var(--fs-mono);font-size:13px;font-weight:600;color:#fff;flex:0 0 auto;width:40px;height:40px;border-radius:10px;display:grid;place-items:center;background:linear-gradient(140deg,var(--accent),var(--accent-deep));box-shadow:var(--shadow-sm)}
+.section.flag .sec-num{background:linear-gradient(140deg,var(--plum),#4c2f61)}
+.sec-titles{flex:1 1 auto;min-width:0}
+.sec-titles h2{font-family:var(--fs-serif);font-size:20px;font-weight:500;line-height:1.15}
+.sec-titles p{font-size:12.5px;color:var(--ink-3);margin-top:2px}
+.sec-meta{display:flex;align-items:center;gap:14px;flex:0 0 auto}
+.mini-track{width:88px;height:6px;border-radius:99px;background:var(--surface-3);overflow:hidden}
+.mini-fill{height:100%;background:linear-gradient(90deg,var(--accent-deep),var(--accent));border-radius:99px;transition:width .4s}
+.sec-pct{font-family:var(--fs-mono);font-size:15px;font-weight:600;min-width:44px;text-align:right}
+.chev{width:20px;height:20px;color:var(--ink-3);transition:transform .2s}
+.sec-head[aria-expanded="true"] .chev{transform:rotate(180deg)}
+.sec-body{border:1px solid var(--line);border-top:none;border-radius:0 0 var(--radius) var(--radius);background:var(--surface);overflow:hidden;min-width:0}
+.sec-body>*{min-width:0;max-width:100%}
+.section,.card{min-width:0}
+.sec-intro{padding:13px 20px;font-size:13px;color:var(--ink-2);background:var(--surface-2);border-bottom:1px solid var(--line-2)}
+.sec-intro b{color:var(--ink)}
+
+/* ---------- Item rows ---------- */
+.item{padding:15px 20px;border-bottom:1px solid var(--line-2);display:grid;grid-template-columns:1fr;gap:11px}
+.item:last-child{border-bottom:none}
+.item-top{display:flex;gap:13px;align-items:flex-start;position:relative}
+.item-idx{font-family:var(--fs-mono);font-size:11.5px;color:var(--ink-4);flex:0 0 auto;padding-top:2px;min-width:34px}
+.item-main{flex:1 1 auto;min-width:0}
+.item-txt{font-size:14.5px;color:var(--ink);line-height:1.5}
+.item-hint{font-size:12.5px;color:var(--ink-3);margin-top:3px}
+.ref{display:inline-block;margin-top:7px;font-family:var(--fs-mono);font-size:11px;font-weight:500;letter-spacing:.02em;color:var(--accent-ink);background:var(--accent-soft);border:1px solid var(--accent-soft);padding:3px 8px;border-radius:6px}
+.statusset{display:flex;gap:4px;flex-wrap:wrap;flex:0 0 auto}
+.sbtn{padding:6px 11px;border-radius:7px;border:1px solid var(--line);background:var(--surface);font-size:12px;font-weight:600;color:var(--ink-3);transition:.13s;white-space:nowrap}
+.sbtn:hover{border-color:var(--ink-4)}
+.sbtn[data-on="1"][data-v="ok"]{background:var(--ok-bg);border-color:var(--ok-line);color:var(--ok)}
+.sbtn[data-on="1"][data-v="warn"]{background:var(--warn-bg);border-color:var(--warn-line);color:var(--warn)}
+.sbtn[data-on="1"][data-v="bad"]{background:var(--bad-bg);border-color:var(--bad-line);color:var(--bad)}
+.sbtn[data-on="1"][data-v="na"]{background:var(--na-bg);border-color:var(--na-line);color:var(--na)}
+.item-note{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.item-note textarea{width:100%;border:1px solid var(--line);border-radius:var(--radius-sm);background:var(--surface-2);padding:8px 10px;font-size:12.5px;resize:vertical;min-height:38px;line-height:1.45;color:var(--ink)}
+.item-note .nf{display:flex;flex-direction:column;gap:4px}
+.item-note .nf.wide{grid-column:1/-1}
+.item-note .nf.wide textarea{min-height:74px;background:var(--surface);font-size:13px}
+.item-note .nf span{font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-4);font-family:var(--fs-mono)}
+.item-note .nf.wide span{color:var(--accent-ink)}
+.item.state-ok{background:linear-gradient(90deg,var(--ok-bg),transparent 60%)}
+.item.state-warn{background:linear-gradient(90deg,var(--warn-bg),transparent 60%)}
+.item.state-bad{background:linear-gradient(90deg,var(--bad-bg),transparent 60%)}
+.item.state-ok .item-idx,.item.state-warn .item-idx,.item.state-bad .item-idx{font-weight:600}
+
+/* ---------- Evidencia sugerida ---------- */
+details.ev{margin-top:9px;border:1px dashed var(--line);border-radius:var(--radius-sm);background:var(--surface-2);overflow:hidden}
+details.ev>summary{list-style:none;cursor:pointer;padding:7px 11px;font-family:var(--fs-mono);font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-3);display:flex;align-items:center;gap:7px}
+details.ev>summary::-webkit-details-marker{display:none}
+details.ev>summary::before{content:"";width:0;height:0;border-left:5px solid var(--ink-4);border-top:4px solid transparent;border-bottom:4px solid transparent;transition:transform .15s}
+details.ev[open]>summary::before{transform:rotate(90deg)}
+details.ev>summary:hover{color:var(--accent-ink)}
+details.ev ul{margin:0;padding:2px 14px 11px 32px;display:flex;flex-direction:column;gap:5px}
+details.ev li{font-size:12.5px;color:var(--ink-2);line-height:1.45}
+
+/* ---------- Editable tables ---------- */
+.tblwrap{padding:16px 20px;overflow-x:auto;min-width:0;max-width:100%}
+table.editable{width:100%;border-collapse:collapse;min-width:660px;font-size:13px}
+table.editable th{text-align:left;font-family:var(--fs-mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);font-weight:500;padding:8px 9px;border-bottom:1.5px solid var(--line);white-space:nowrap}
+table.editable td{padding:5px 6px;border-bottom:1px solid var(--line-2);vertical-align:middle}
+table.editable input,table.editable select{width:100%;border:1px solid transparent;background:transparent;border-radius:6px;padding:6px 8px;font-size:13px}
+table.editable input:hover,table.editable select:hover{border-color:var(--line)}
+table.editable input:focus,table.editable select:focus{outline:none;border-color:var(--accent);background:var(--surface);box-shadow:0 0 0 2px var(--accent-soft)}
+table.editable input.num{font-family:var(--fs-mono);text-align:right;font-variant-numeric:tabular-nums}
+td.suf{font-family:var(--fs-mono);font-weight:600;white-space:nowrap;text-align:center;font-size:12px}
+td.suf.ok{color:var(--ok)} td.suf.bad{color:var(--bad)} td.suf.none{color:var(--ink-4)}
+.rowdel{border:none;background:transparent;color:var(--ink-4);font-size:16px;line-height:1;padding:4px 7px;border-radius:6px}
+.rowdel:hover{color:var(--bad);background:var(--bad-bg)}
+.tbl-actions{padding:0 20px 16px;display:flex;gap:9px;flex-wrap:wrap;align-items:center}
+.addrow{display:inline-flex;align-items:center;gap:6px;padding:7px 12px;border-radius:var(--radius-sm);border:1px dashed var(--accent);background:var(--accent-soft);color:var(--accent-ink);font-size:12.5px;font-weight:600}
+.addrow:hover{background:var(--accent);color:#fff;border-style:solid}
+.tbl-note{font-size:11.5px;color:var(--ink-3);flex:1 1 220px}
+.sub-head{padding:13px 20px 0;font-family:var(--fs-serif);font-size:16px;font-weight:500}
+.sub-head span{display:block;font-family:var(--fs-sans);font-size:12px;color:var(--ink-3);font-weight:400;margin-top:2px}
+
+/* ---------- Footer ---------- */
+.foot{border-top:1px solid var(--line);margin-top:40px;padding:22px 0 30px;color:var(--ink-3);font-size:12px}
+.foot .wrap{display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between;align-items:center}
+.foot b{color:var(--ink-2)}
+.reset-link{background:none;border:none;color:var(--ink-4);font-size:12px;text-decoration:underline;text-underline-offset:2px}
+.reset-link:hover{color:var(--bad)}
+.theme-tog{padding:8px 9px}
+
+@media (max-width:900px){.idform{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:720px){
+  .idform{grid-template-columns:1fr}
+  .field.two{grid-column:span 1}
+  .scoreboard{grid-template-columns:1fr;gap:18px}
+  .item-note{grid-template-columns:1fr}
+  .item-top{flex-wrap:wrap}
+  .statusset{width:100%}
+  .sec-meta .mini-track{display:none}
+  .record-sel{order:-1;width:100%}
+}
+@media print{
+  .toolbar,.tbtn,.addrow,.rowdel,.theme-tog,.reset-link,.chev,.foot .reset-link{display:none!important}
+  body{background:#fff;font-size:11px}
+  .sec-body{display:block!important}
+  .sec-head{box-shadow:none}
+  .card,.sec-head,.sec-body{break-inside:avoid;box-shadow:none}
+  .item{break-inside:avoid}
+  details.ev{border-style:solid}
+  details.ev>summary{display:none}
+  details.ev ul{padding-top:9px}
+  .masthead{border:none}
+  main{padding-top:6px}
+}
+</style>
+
+<div class="masthead">
+  <div class="wrap">
+    <div class="crest">
+      <div class="crest-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 21s-7-4.4-7-9.6A4.4 4.4 0 0 1 12 8a4.4 4.4 0 0 1 7 3.4C19 16.6 12 21 12 21Z"/><path d="M3 12h4l1.5-3 2 6 1.5-3h3"/>
+        </svg>
+      </div>
+      <div class="crest-txt">
+        <div class="eyebrow">CIFRHS · NOM-001-SSA-2023 · DGCES · COMAEM</div>
+        <div class="org">Hospital Central del Estado de Chihuahua &mdash; Departamento de Enseñanza</div>
+      </div>
+    </div>
+    <h1 class="title">Cédula CIFRHS de evaluación de campos clínicos</h1>
+    <p class="subtitle">Instrumento de captura y verificación del cumplimiento de los criterios <b>CIFRHS</b> para las <b>11 residencias médicas</b> que oferta el HCE, conforme a la <b>NOM-001-SSA-2023</b>, la <em>Guía para Evaluar Criterios Esenciales de Planes y Programas de Especialidades Médicas</em> y el proceso de gestión de la DGCES.</p>
+    <p class="legal-note">Herramienta de trabajo interna. La captura se guarda en este navegador; use <b>Exportar JSON</b> para respaldar o compartir un registro. Los mínimos de casuística, plazos y referencias documentales deben cotejarse contra el programa académico avalado por la IES y la normatividad vigente antes de emitir cualquier dictamen o integrar expediente formal.</p>
+  </div>
+</div>
+
+<div class="toolbar">
+  <div class="wrap">
+    <div class="record-sel">
+      <label for="recordSel">Registro</label>
+      <select class="record" id="recordSel" title="Especialidad / registro activo"></select>
+    </div>
+    <button class="tbtn" id="btnNew" title="Nuevo registro en blanco"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>Nuevo</button>
+    <button class="tbtn" id="btnDup" title="Duplicar el registro actual"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>Duplicar</button>
+    <button class="tbtn" id="btnDel" title="Eliminar el registro actual"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M9 7V5h6v2M6 7l1 13h10l1-13"/></svg>Eliminar</button>
+    <button class="tbtn" id="btnExport" title="Exportar respaldo JSON"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0 4-4m-4 4-4-4M5 21h14"/></svg>JSON</button>
+    <button class="tbtn" id="btnImport" title="Importar respaldo JSON"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15V3m0 0 4 4m-4-4-4 4M5 21h14"/></svg>Importar</button>
+    <button class="tbtn primary" id="btnPrint" title="Imprimir o guardar como PDF"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V3h12v6M6 18H4v-6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v6h-2M8 14h8v7H8z"/></svg>PDF</button>
+    <span class="save-dot" id="saveDot">Guardado</span>
+    <button class="tbtn ghost theme-tog" id="btnTheme" title="Cambiar tema" aria-label="Cambiar tema"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" id="themeIcon"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4 12H2m20 0h-2m-2.5-6.5-1.4 1.4M6.9 17.1l-1.4 1.4m0-13 1.4 1.4M17.1 17.1l1.4 1.4"/></svg></button>
+    <input type="file" id="fileInput" accept="application/json" style="display:none">
+  </div>
+</div>
+
+<main>
+  <div class="wrap grid">
+
+    <section class="card" id="identificacion">
+      <div class="card-head">
+        <span class="kicker">Ficha</span>
+        <h2>Identificación del programa y de la sede</h2>
+        <span class="badge" id="entradaBadge">—</span>
+      </div>
+      <div class="idform" id="idform">
+        <div class="field two"><label for="f_esp">Especialidad médica</label>
+          <select id="f_esp" data-meta="especialidad"></select>
+          <span class="fnote" id="espNote">Seleccione la residencia a evaluar.</span>
+        </div>
+        <div class="field"><label for="f_ciclo">Ciclo académico</label><input id="f_ciclo" data-meta="ciclo" placeholder="2026-2027"></div>
+        <div class="field two"><label for="f_unidad">Unidad médica sede</label><input id="f_unidad" data-meta="unidad" placeholder="Hospital Central del Estado de Chihuahua"></div>
+        <div class="field"><label for="f_entidad">Entidad federativa</label><input id="f_entidad" data-meta="entidad" placeholder="Chihuahua"></div>
+        <div class="field"><label for="f_inst">Institución de salud</label><input id="f_inst" data-meta="institucion" placeholder="ICHISAL / Servicios de Salud de Chihuahua"></div>
+        <div class="field"><label for="f_ies">Institución de Educación Superior (aval)</label><input id="f_ies" data-meta="ies" placeholder="Universidad Autónoma de Chihuahua"></div>
+        <div class="field"><label for="f_dur">Duración del programa (años)</label><input id="f_dur" data-meta="duracion" inputmode="numeric" placeholder="—"></div>
+        <div class="field"><label for="f_prof">Profesor titular</label><input id="f_prof" data-meta="profesor" placeholder="Nombre y grado"></div>
+        <div class="field"><label for="f_par">Evaluador / par verificador</label><input id="f_par" data-meta="par" placeholder="Nombre del responsable de la captura"></div>
+        <div class="field"><label for="f_fecha">Fecha de evaluación</label><input id="f_fecha" data-meta="fecha" type="date"></div>
+        <div class="field"><label for="f_tipo">Tipo de solicitud / trámite</label>
+          <select id="f_tipo" data-meta="tipo">
+            <option>Evaluación interna (autodiagnóstico)</option>
+            <option>Apertura de sede</option>
+            <option>Apertura de subsede</option>
+            <option>Incremento de plazas</option>
+            <option>Renovación de OTA</option>
+            <option>Verificación COMAEM</option>
+          </select>
+        </div>
+        <div class="field"><label for="f_res">Total de residentes matriculados</label><input id="f_res" data-meta="residentes" class="num" inputmode="numeric" placeholder="0"></div>
+        <div class="field"><label for="f_plazas">Plazas autorizadas por ciclo</label><input id="f_plazas" data-meta="plazas" inputmode="numeric" placeholder="0"></div>
+      </div>
+    </section>
+
+    <section class="card" id="resumen">
+      <div class="card-head"><span class="kicker">Tablero</span><h2>Grado de cumplimiento del registro activo</h2></div>
+      <div class="scoreboard">
+        <div class="donut-wrap">
+          <div class="donut">
+            <svg width="132" height="132" viewBox="0 0 132 132" aria-hidden="true">
+              <circle cx="66" cy="66" r="56" fill="none" stroke="var(--surface-3)" stroke-width="13"/>
+              <circle id="donutArc" cx="66" cy="66" r="56" fill="none" stroke="var(--accent)" stroke-width="13" stroke-linecap="round" stroke-dasharray="351.9" stroke-dashoffset="351.9"/>
+            </svg>
+            <div class="pct"><div><div class="n" id="globalPct">0%</div><div class="l">Global</div></div></div>
+          </div>
+          <div class="donut-caption" id="globalCaption">Sobre reactivos aplicables</div>
+        </div>
+        <div>
+          <div class="tallies">
+            <div class="tally ok"><span class="n" id="tOk">0</span><span class="l">Cumple</span></div>
+            <div class="tally warn"><span class="n" id="tWarn">0</span><span class="l">Parcial</span></div>
+            <div class="tally bad"><span class="n" id="tBad">0</span><span class="l">No cumple</span></div>
+            <div class="tally pend"><span class="n" id="tPend">0</span><span class="l">Pendiente</span></div>
+          </div>
+          <div class="cedbars" id="cedbars"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="card" id="comparativo">
+      <div class="card-head">
+        <span class="kicker">Comparativo</span>
+        <h2>Avance por especialidad</h2>
+        <span class="hint">Clic en una fila para abrir su registro</span>
+      </div>
+      <div class="cmp">
+        <table class="cmp-tbl">
+          <thead><tr>
+            <th style="min-width:210px">Especialidad</th>
+            <th>Cumplimiento</th>
+            <th style="text-align:right">%</th>
+            <th style="text-align:right">Evaluados</th>
+            <th style="text-align:right">Pendientes</th>
+            <th>Estatus</th>
+          </tr></thead>
+          <tbody id="cmpBody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <div id="sections" class="grid"></div>
+
+  </div>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div>Cédula técnica basada en <b>NOM-001-SSA-2023</b>, lineamientos <b>CIFRHS</b> (Guía para Evaluar Criterios Esenciales de Planes y Programas de Especialidades Médicas) y proceso de gestión de la <b>DGCES</b>. Departamento de Enseñanza, Hospital Central del Estado de Chihuahua.</div>
+    <button class="reset-link" id="btnReset">Borrar todos los datos guardados</button>
+  </div>
+</footer>
+
+<script>
+"use strict";
+/* ============================================================
+   Cédula CIFRHS · Residencias médicas HCE Chihuahua
+   Departamento de Enseñanza — instrumento de captura interna
+   ============================================================ */
+
+const STATUS = [
+  {v:"ok",   label:"Cumple"},
+  {v:"warn", label:"Parcial"},
+  {v:"bad",  label:"No cumple"},
+  {v:"na",   label:"No aplica"}
+];
+const WEIGHT = {ok:1, warn:0.5, bad:0, na:null, "":null};
+
+/* ---------- Catálogo de residencias del HCE ---------- */
+const ESPECIALIDADES = [
+  {n:"Anestesiología",                      e:"Entrada directa"},
+  {n:"Angiología y Cirugía Vascular",       e:"Entrada indirecta", pre:"Cirugía General"},
+  {n:"Cirugía General",                     e:"Entrada directa"},
+  {n:"Cirugía Plástica y Reconstructiva",   e:"Entrada indirecta", pre:"Cirugía General"},
+  {n:"Geriatría",                           e:"Entrada indirecta", pre:"Medicina Interna"},
+  {n:"Ginecología y Obstetricia",           e:"Entrada directa"},
+  {n:"Imagenología Diagnóstica y Terapéutica", e:"Entrada directa"},
+  {n:"Medicina Crítica",                    e:"Entrada indirecta", pre:"Medicina Interna, Anestesiología, Cirugía General o Urgencias"},
+  {n:"Medicina Interna",                    e:"Entrada directa"},
+  {n:"Nefrología",                          e:"Entrada indirecta", pre:"Medicina Interna"},
+  {n:"Ortopedia y Traumatología",           e:"Entrada directa"}
+];
+
+/* ============================================================
+   Modelo de criterios
+   ============================================================ */
+const MODEL = [
+{
+  id:"c1", num:"C1", title:"Infraestructura, equipamiento y bienestar del residente",
+  sub:"Condiciones físicas, tecnológicas y de estancia digna",
+  intro:"Verifica que la unidad cuente con las áreas de bienestar, espacios académicos y equipamiento clínico indispensables para el desarrollo del programa. Marque <b>No aplica</b> en el equipamiento ajeno al perfil de la especialidad y justifíquelo en observaciones.",
+  items:[
+    {t:"Dormitorios de guardia diferenciados por género, con camas individuales, limpios y suficientes.", ref:"NOM 5.14 · 9.10",
+     docs:["Cédula de inventario de áreas de descanso con número de camas por género","Reporte fotográfico fechado","Bitácora de limpieza y mantenimiento","Acta de recorrido del Comité de Enseñanza"]},
+    {t:"Baños y regaderas de uso exclusivo para residentes, con agua caliente y servicio permanente.", ref:"NOM 5.14 · 9.10",
+     docs:["Plano de ubicación de sanitarios asignados a residentes","Reporte fotográfico","Orden de servicio de mantenimiento de calentadores"]},
+    {t:"Área de descanso y aseo personal disponible durante la jornada y las guardias.", ref:"NOM 5.14 · 7.5 · 9.10",
+     docs:["Oficio de asignación del espacio","Reporte fotográfico","Reglamento interno de uso del área"]},
+    {t:"Lockers o casilleros individuales asignados nominalmente a los residentes.", ref:"CIFRHS · Bienestar",
+     docs:["Padrón de asignación firmado por residente","Reporte fotográfico","Resguardo de llaves"]},
+    {t:"Servicio de alimentación con comidas balanceadas durante jornada ordinaria y guardias.", ref:"NOM 5.14 · 9.13",
+     docs:["Convenio o programa del servicio de alimentación","Menús avalados por Nutrición","Registro de raciones entregadas a residentes","Horarios de comedor"]},
+    {t:"Aulas para seminarios con equipo multimedia funcional y capacidad suficiente para la matrícula.", ref:"NOM A.10 · CIFRHS",
+     docs:["Inventario de aulas y equipo audiovisual","Calendario de uso de aulas por residencia","Reporte fotográfico"]},
+    {t:"Auditorio y sala de cómputo con acceso institucional para actividades académicas.", ref:"CIFRHS · Espacios académicos",
+     docs:["Calendario de reservación","Inventario de equipo de cómputo y conectividad","Constancia de acceso a red institucional"]},
+    {t:"Centro de Información y Documentación: biblioteca física y/o virtual con acceso a bases indexadas (PubMed, UpToDate, ScienceDirect, ClinicalKey u otras).", ref:"NOM 9.9 · A.16",
+     h:"El mecanismo de acceso debe estar documentado y vigente.",
+     docs:["Contrato o convenio de suscripción vigente","Credenciales o VPN institucional documentada","Estadística de consultas por residentes","Acervo físico con inventario actualizado"]},
+    {t:"Quirófanos / salas de procedimientos con disponibilidad operativa y equipamiento acorde al perfil de la especialidad.", ref:"NOM 5.9 · NOM-016-SSA3-2012",
+     h:"Marque No aplica en especialidades no quirúrgicas y documente los escenarios equivalentes.",
+     docs:["Inventario de quirófanos y equipo por sala","Programa quirúrgico y porcentaje de utilización","Bitácora de mantenimiento preventivo","Licencia sanitaria del área"]},
+    {t:"Unidad de Cuidados Intensivos (adultos y/o pediátricos) operativa.", ref:"NOM-016-SSA3-2012",
+     docs:["Censo y capacidad instalada de UCI","Plantilla de intensivistas","Reporte de ocupación anual"]},
+    {t:"Servicio de Imagenología con estudios acordes al programa (Rx, USG, TAC, RM según aplique).", ref:"NOM-016-SSA3-2012",
+     docs:["Inventario de equipos con año de instalación","Licencia sanitaria y permisos COFEPRIS/CNSNS","Productividad anual de estudios","Contrato de mantenimiento"]},
+    {t:"Laboratorio clínico, anatomía patológica y banco de sangre / servicio de transfusión disponibles.", ref:"NOM-016-SSA3-2012",
+     docs:["Licencia sanitaria de laboratorio y banco de sangre","Catálogo de estudios disponibles","Certificado de control de calidad externo"]},
+    {t:"Sistemas de información clínica y expediente accesibles al residente conforme a la NOM-004-SSA3-2012.", ref:"NOM-004-SSA3-2012",
+     docs:["Manual de uso del expediente clínico","Constancia de alta de usuarios residentes","Política de confidencialidad firmada"]},
+    {t:"Licencia sanitaria vigente de la unidad y de sus servicios auxiliares de diagnóstico y tratamiento.", ref:"CIFRHS · Legal",
+     docs:["Licencia sanitaria vigente","Aviso de funcionamiento","Registro CLUES","Licencias de servicios auxiliares"]},
+    {t:"Cumplimiento de infraestructura y equipamiento conforme a la NOM-016 y NOM-005 según corresponda.", ref:"NOM 5.15 · 2.2 · 2.3",
+     docs:["Cédula de autoevaluación de infraestructura","Dictamen de protección civil vigente","Programa de conservación y mantenimiento"]}
+  ]
+},
+{
+  id:"c2", num:"C2", title:"Casuística y capacidad asistencial",
+  sub:"Volumen y diversidad de pacientes que sustentan el entrenamiento",
+  intro:"Documenta la productividad del servicio y la correlación entre el volumen disponible y los mínimos exigidos por residente en el plan de estudios. Capture las cifras del último año en la <b>matriz de correlación</b> al final de la sección.",
+  items:[
+    {t:"Egresos hospitalarios anuales del servicio, con desglose por diagnóstico CIE-10.", ref:"CIFRHS · Productividad",
+     docs:["Reporte anual del sistema de información hospitalaria (SIS/SAEH)","Concentrado de egresos por CIE-10 firmado por Estadística","Informe anual del jefe de servicio"]},
+    {t:"Consultas de especialidad otorgadas al año (primera vez y subsecuentes).", ref:"CIFRHS · Productividad",
+     docs:["Reporte de productividad de consulta externa","Concentrado SIS por servicio","Índice primera vez / subsecuente"]},
+    {t:"Procedimientos diagnósticos, terapéuticos o quirúrgicos anuales clasificados por tipo y diagnóstico.", ref:"CIFRHS · Casuística",
+     docs:["Bitácora quirúrgica o de procedimientos del servicio","Reporte anual por tipo de procedimiento","Registro de participación del residente por grado"]},
+    {t:"Capacidad instalada: camas censables y no censables, porcentaje de ocupación y promedio de estancia.", ref:"CIFRHS · Capacidad",
+     docs:["Reporte anual de indicadores hospitalarios","Cédula de capacidad instalada","Tarjeta de indicadores del servicio"]},
+    {t:"Morbilidad y mortalidad del servicio analizadas en sesión colegiada con participación de residentes.", ref:"NOM 9.5 · CIFRHS",
+     docs:["Actas de sesiones de morbimortalidad","Lista de asistencia de residentes","Reporte anual de mortalidad por CIE-10"]},
+    {t:"La casuística disponible cubre los mínimos por residente exigidos por el programa académico.", ref:"CIFRHS · Correlación académica",
+     h:"Verifique la suficiencia procedimiento por procedimiento en la matriz editable.",
+     docs:["Matriz de correlación casuística / mínimos del plan de estudios","Bitácoras individuales de procedimientos por residente","Programa académico avalado con los mínimos declarados"]},
+    {t:"El volumen no depende de un solo médico adscrito ni reduce la cuota individual del grupo ya asignado.", ref:"CIFRHS · Incremento",
+     docs:["Desglose de procedimientos por médico adscrito","Cálculo de cuota per cápita antes y después del incremento","Oficio del jefe de servicio"]}
+  ],
+  matrix:true
+},
+{
+  id:"c3", num:"C3", title:"Plantilla y perfil docente",
+  sub:"Suficiencia, calificación y reconocimiento del profesorado",
+  intro:"Valida al profesor titular, a los adjuntos y las condiciones de tutoría. Registre a cada profesor en la <b>tabla de plantilla docente</b>; los reactivos aplican al titular y al cuerpo docente en conjunto.",
+  items:[
+    {t:"Profesor titular con título y cédula profesional de Médico Cirujano.", ref:"NOM 8.2.1 · 3.10",
+     docs:["Título profesional","Cédula profesional federal","Consulta al Registro Nacional de Profesionistas (SEP)"]},
+    {t:"Profesor titular con título y cédula de la especialidad que imparte.", ref:"NOM 8.1 · 8.2.1",
+     docs:["Diploma de especialidad","Cédula de especialidad","Constancia de la IES que emitió el diploma"]},
+    {t:"Certificación o recertificación vigente por el Consejo de especialidad correspondiente.", ref:"CIFRHS · Certificación",
+     h:"Verifique fecha de vigencia contra el padrón del CONACEM.",
+     docs:["Certificado vigente del Consejo","Consulta al padrón CONACEM","Constancia de recertificación en trámite (si aplica)"]},
+    {t:"Formación pedagógica documentada: formación docente, metodología de la investigación y bioética.", ref:"NOM 8.2.2 · CIFRHS",
+     docs:["Constancias de cursos de formación docente","Diplomado en educación médica","Constancia de curso de metodología de la investigación","Certificación en Buenas Prácticas Clínicas / bioética"]},
+    {t:"Productividad académica y científica del titular (publicaciones indexadas, SNII, dirección de tesis).", ref:"CIFRHS · Perfil",
+     docs:["CV único en formato institucional","Listado de publicaciones con DOI","Constancias de dirección de tesis","Nombramiento SNII vigente"]},
+    {t:"Adscripción a la unidad con responsabilidad directa de atención a pacientes en la especialidad.", ref:"NOM 8.2.1 · 8.2.3",
+     docs:["Nombramiento y último talón de pago","Rol de servicio del profesor","Constancia de antigüedad"]},
+    {t:"Nombramiento o dictamen de asignación docente con reconocimiento y aval de la IES.", ref:"NOM 3.10 · 8.4",
+     docs:["Nombramiento de profesor titular emitido por la IES","Acta del consejo académico de la Facultad de Medicina","Oficio de designación institucional"]},
+    {t:"Profesores adjuntos suficientes, nombrados y con reconocimiento de la IES.", ref:"NOM 3.9 · 8.4",
+     docs:["Nombramientos de adjuntos","Plantilla docente por grado y rotación","Cálculo de la relación profesor/residente"]},
+    {t:"Relación tutor-alumno adecuada conforme al programa académico y a la normatividad vigente.", ref:"CIFRHS · Ratio",
+     h:"Documente el cálculo por sede, subsede y escenario (clínico, quirúrgico, consulta).",
+     docs:["Matrícula por grado","Plantilla docente por escenario","Hoja de cálculo de la relación tutor/residente"]},
+    {t:"Responsable de la formación de recursos humanos (jefe de enseñanza) con especialidad y experiencia docente.", ref:"NOM 5.1",
+     docs:["Nombramiento del jefe de enseñanza","CV y constancias de formación docente","Organigrama del departamento"]},
+    {t:"Órgano colegiado responsable de los procesos de enseñanza instalado y operando (comité de enseñanza / consejo académico).", ref:"NOM 5.2.11",
+     docs:["Acta de instalación del comité","Actas de sesiones del último año","Reglamento interno del comité","Lista de integrantes vigente"]},
+    {t:"Evaluación del desempeño docente aplicada por los residentes y con seguimiento documentado.", ref:"NOM 9.4 · COMAEM",
+     docs:["Instrumento de evaluación docente","Concentrado de resultados por profesor","Plan de mejora derivado de la evaluación"]}
+  ],
+  docentes:true
+},
+{
+  id:"c4", num:"C4", title:"Programa académico y Programa Operativo",
+  sub:"Viabilidad pedagógica y respeto a la jornada formativa",
+  intro:"Garantiza que exista un programa académico avalado por la IES y un Programa Operativo conforme al <b>Apéndice A</b> de la NOM-001-SSA-2023, con guardias y jornada reglamentarias. El checklist de las 19 secciones se encuentra al final de la sección.",
+  items:[
+    {t:"Programa académico (plan de estudios) autorizado por la IES aval, vigente para el ciclo evaluado.", ref:"NOM 3.11 · 4.2",
+     docs:["Plan de estudios sellado por la IES","Acuerdo del consejo universitario / técnico","Registro del programa ante la SEP"]},
+    {t:"Programa Operativo elaborado conforme al Apéndice A de la NOM (19 secciones).", ref:"NOM 3.12 · A.1–A.19",
+     docs:["Programa Operativo del ciclo con firmas","Índice cotejado contra el Apéndice A","Oficio de validación de la IES"]},
+    {t:"Perfil de egreso y competencias profesionales definidas y alineadas al plan de estudios.", ref:"NOM 4.2 · COMAEM",
+     docs:["Perfil de egreso documentado","Mapa curricular por competencias","Matriz de alineación competencias / actividades"]},
+    {t:"Rol de guardias conforme a la normatividad vigente, con intervalos y jornada semanal dentro de los límites establecidos.", ref:"NOM 7.1",
+     h:"Verifique el promedio anual de horas semanales incluyendo jornada ordinaria.",
+     docs:["Rol de guardias mensual por residente y grado","Cálculo del promedio anual de horas/semana","Registro de asistencia y relevo"]},
+    {t:"Descanso reglamentario posterior a la guardia y continuidad de actividades conforme a la norma.", ref:"NOM 7.2 · 7.3",
+     docs:["Lineamiento interno de descanso post-guardia","Registro de salida posterior a la guardia","Acta del comité de enseñanza"]},
+    {t:"Esquema de rotaciones clínicas intra y extrahospitalarias definido, incluida la rotación de campo cuando aplique.", ref:"NOM 4.5 · A.8 · A.9 · A.15",
+     docs:["Calendario anual de rotaciones por grado","Convenios de las unidades de rotación","Cartas de aceptación de las subsedes","Objetivos de aprendizaje por rotación"]},
+    {t:"Sistema de evaluación del aprendizaje (formativa y sumativa) con instrumentos, ponderación y periodicidad definidas.", ref:"NOM 9.4 · A.14",
+     docs:["Instrumentos de evaluación y rúbricas","Actas de evaluación trimestral","Concentrado de calificaciones ante la IES","Bitácora de retroalimentación"]},
+    {t:"Programa de investigación: protocolos registrados ante el comité correspondiente y seguimiento de tesis.", ref:"NOM 9.6 · A.13",
+     docs:["Registro de protocolos ante el Comité de Investigación y de Ética","Cronograma de avance de tesis","Constancias de asesoría metodológica"]},
+    {t:"Dos periodos vacacionales de diez días hábiles al año, calendarizados y respetados.", ref:"NOM 9.12 · A.7",
+     docs:["Calendario de vacaciones autorizado","Oficios de autorización por residente","Registro de sustitución durante el periodo"]},
+    {t:"Provisión de uniformes y equipo de protección conforme a la normatividad.", ref:"NOM 9.14",
+     docs:["Vales de entrega firmados por residente","Requisición y factura de compra","Registro de entrega de EPP"]}
+  ],
+  po:true
+},
+{
+  id:"esc", num:"C5", flag:true,
+  title:"Escenarios de práctica y servicio social, convenios y programas de práctica",
+  sub:"Campos clínicos, programas operativos por sede y formalización de convenios",
+  intro:"Apartado de verificación de los <b>escenarios de práctica</b> declarados ante la CIFRHS para la Opinión Técnico-Académica (OTA). Cada reactivo incluye un espacio de <b>respuesta abierta</b> para el sustento de la institución educativa y una lista sugerida de documentos o procesos probatorios. Registre cada campo clínico en la <b>matriz de sedes y subsedes</b> al final de la sección.",
+  resp:true,
+  items:[
+    {t:"La institución educativa presenta el diagnóstico situacional de los campos clínicos para la especialidad médica, vigente a la fecha de solicitud de OTA.",
+     ref:"CIFRHS · OTA · Escenarios 1",
+     docs:[
+      "Diagnóstico situacional en el formato oficial de la DGCES/CIFRHS, uno por cada campo clínico (sede y subsedes)",
+      "Hoja de firmas: director de la unidad, jefe de enseñanza y titular de la IES",
+      "Verificación de vigencia: fecha de elaboración dentro del periodo aceptado a la fecha de solicitud de OTA",
+      "Oficio de remisión de la IES y acuse de recepción institucional",
+      "Control de versiones o folio interno que identifique el ciclo académico evaluado"]},
+    {t:"La institución educativa presenta el programa operativo de cada campo clínico con el que se tiene convenio, vigente a la fecha de solicitud de OTA.",
+     ref:"CIFRHS · OTA · Escenarios 2",
+     docs:[
+      "Programa Operativo por sede y por cada subsede con convenio vigente",
+      "Portada con firmas autógrafas del profesor titular, jefe de enseñanza y aval de la IES",
+      "Índice cotejado contra las 19 secciones del Apéndice A de la NOM-001-SSA-2023",
+      "Oficio de validación o sello de recepción de la IES con fecha",
+      "Tabla de correspondencia campo clínico ↔ programa operativo entregado"]},
+    {t:"El programa operativo en cada una de las sedes y subsedes se basa en el diagnóstico situacional del establecimiento de atención médica.",
+     ref:"CIFRHS · OTA · Escenarios 3",
+     docs:[
+      "Matriz de trazabilidad: hallazgo del diagnóstico situacional → actividad, rotación o recurso del programa operativo",
+      "Coincidencia verificable entre casuística e infraestructura reportadas y las rotaciones programadas",
+      "Acta del comité de enseñanza o del órgano colegiado que revisó ambos documentos en conjunto",
+      "Minuta de la reunión IES–unidad médica donde se validó la congruencia"]},
+    {t:"La práctica clínica se organiza con base en los espacios, horarios y lineamientos generales de las sedes y subsedes propuestas y en la normatividad vigente.",
+     ref:"CIFRHS · OTA · Escenarios 4 · NOM 7",
+     docs:[
+      "Reglamento interno de residentes de cada sede y subsede, autorizado y difundido",
+      "Horarios por servicio y por grado, sellados por la jefatura correspondiente",
+      "Oficio de asignación de espacios físicos y áreas de práctica al programa",
+      "Carta compromiso del residente donde acepta los lineamientos de cada escenario",
+      "Anexo de la NOM-001-SSA-2023 y normatividad estatal aplicable en el expediente"]},
+    {t:"El programa operativo señala la calendarización de las actividades asistenciales, educativas y de investigación a lo largo de la especialidad médica.",
+     ref:"CIFRHS · OTA · Escenarios 5 · NOM A.10 · A.12 · A.13",
+     docs:[
+      "Cronograma anual por grado (tipo Gantt) con actividades asistenciales, académicas y de investigación",
+      "Calendario académico de la IES empatado con el calendario operativo de la unidad",
+      "Programación de sesiones: bibliográfica, clínica, morbimortalidad, anatomoclínica y de casos",
+      "Cronograma de protocolos de investigación y avance de tesis por grado",
+      "Programación anual de cursos, congresos y actividades de educación continua"]},
+    {t:"El programa operativo incluye los tiempos destinados para la alimentación, los descansos, las guardias y los periodos de vacaciones de los residentes, conforme a la normatividad vigente.",
+     ref:"CIFRHS · OTA · Escenarios 6 · NOM 7.1–7.3 · 9.12 · 9.13",
+     docs:[
+      "Rol de guardias con fecha, horario, servicio y residente asignado",
+      "Cálculo del promedio anual de horas semanales incluyendo jornada ordinaria y guardias",
+      "Horarios de comedor y constancia del servicio de alimentación durante guardias",
+      "Lineamiento y registro del descanso posterior a la guardia",
+      "Calendario de los dos periodos vacacionales de diez días hábiles, autorizado por escrito"]},
+    {t:"Las actividades del programa operativo se definen de acuerdo con la normatividad vigente y en concordancia con el programa académico correspondiente.",
+     ref:"CIFRHS · OTA · Escenarios 7 · NOM 3.11 · 3.12",
+     docs:[
+      "Matriz de correspondencia unidad didáctica del plan de estudios ↔ actividad del programa operativo",
+      "Plan de estudios vigente sellado por la IES",
+      "Oficio de aval académico de la IES para el ciclo evaluado",
+      "Dictamen del comité académico de la Facultad de Medicina sobre la congruencia",
+      "Reporte de revisión de congruencia del programa operativo (19 puntos)"]},
+    {t:"Se garantiza que al menos se cuente con un profesor titular y al menos un profesor adjunto por cada 10 residentes dentro de cada una de las sedes y subsedes propuestas.",
+     ref:"CIFRHS · OTA · Escenarios 8 · NOM 8.4",
+     h:"El cálculo se realiza por sede y por subsede, no de forma global. Use la matriz de campos clínicos.",
+     docs:[
+      "Nombramientos vigentes de profesor titular y adjuntos por cada sede y subsede",
+      "Matrícula por grado y por escenario a la fecha de la solicitud",
+      "Hoja de cálculo de la relación docente/residente por campo clínico",
+      "Reconocimiento de la IES a cada nombramiento docente",
+      "Plan de sustitución en caso de ausencia del titular"]},
+    {t:"La práctica está enfocada en la adquisición de competencias profesionales por medio de procedimientos apoyados en el método científico.",
+     ref:"CIFRHS · OTA · Escenarios 9 · COMAEM",
+     docs:[
+      "Perfil de egreso por competencias con niveles de desempeño esperados por grado",
+      "Rúbricas, listas de cotejo y guías de observación aplicadas en el escenario clínico",
+      "Bitácora individual de procedimientos con nivel de participación y supervisión",
+      "Portafolio de evidencias del residente",
+      "Programa de sesiones de medicina basada en evidencia y lectura crítica"]},
+    {t:"Las actividades prácticas se vinculan con las actividades teóricas.",
+     ref:"CIFRHS · OTA · Escenarios 10 · NOM A.10 · A.11",
+     docs:[
+      "Horario integrado que muestre la secuencia teoría–práctica en la jornada",
+      "Programa de los seminarios de atención médica, investigación y educación",
+      "Registro de asistencia y evaluación de seminarios",
+      "Sesiones de correlación clínico-patológica y de casos con participación del residente",
+      "Evidencia de que el tema teórico corresponde a la rotación en curso"]},
+    {t:"Las actividades dentro de los escenarios operativos corresponden a las competencias de la especialidad médica.",
+     ref:"CIFRHS · OTA · Escenarios 11",
+     docs:[
+      "Descripción de cada escenario con las actividades y procedimientos autorizados al residente por grado",
+      "Catálogo de procedimientos por grado validado por el jefe de servicio",
+      "Bitácoras de procedimientos con firma del profesor responsable",
+      "Acta de validación del comité de enseñanza sobre la pertinencia del escenario"]},
+    {t:"Los escenarios de práctica deben contar con la acreditación correspondiente para su funcionamiento y formar parte del Sistema Nacional para Residencias Médicas.",
+     ref:"CIFRHS · OTA · Escenarios 12",
+     docs:[
+      "Licencia sanitaria y aviso de funcionamiento vigentes de cada escenario",
+      "Clave CLUES del establecimiento",
+      "Constancia de registro en el Sistema Nacional para Residencias Médicas",
+      "Dictamen o pronunciamiento previo de la CIFRHS sobre el campo clínico",
+      "Acreditación de los servicios auxiliares de diagnóstico y tratamiento involucrados"]},
+    {t:"Se presentan convenios y/o cartas de intención o equivalentes, vigentes y específicos para el desarrollo de la especialidad médica, entre la(s) sede(s) y la institución de educación superior, formalizadas mediante la firma de las máximas autoridades responsables de ambas partes.",
+     ref:"CIFRHS · OTA · Escenarios 13",
+     docs:[
+      "Convenio general de colaboración interinstitucional vigente",
+      "Convenio específico de campos clínicos que nombre expresamente la especialidad médica",
+      "Carta de intención o instrumento equivalente cuando el convenio esté en proceso",
+      "Firmas de las máximas autoridades: Rector o Director de la IES y titular de la institución de salud",
+      "Cláusulas de vigencia, objeto, número de residentes y responsabilidades de cada parte",
+      "Registro y sello del área jurídica de ambas instituciones"]},
+    {t:"Los convenios y/o cartas de intención (o equivalentes) presentados garantizan cuando menos una sede para el desarrollo del programa operativo y una subsede para la rotación de residentes.",
+     ref:"CIFRHS · OTA · Escenarios 14",
+     docs:[
+      "Listado de campos clínicos con convenio vigente, identificando cuál es sede y cuál subsede",
+      "Anexo del convenio con la relación de unidades y servicios habilitados",
+      "Plan de rotaciones externas que muestre el uso efectivo de la subsede",
+      "Cartas de aceptación firmadas por la subsede para el ciclo evaluado",
+      "Verificación de que la vigencia del convenio cubre la duración completa del programa"]}
+  ],
+  campos:true
+},
+{
+  id:"exp", num:"E", title:"Expediente administrativo y legal",
+  sub:"Documentación oficial para la gestión ante la DGCES / CIFRHS",
+  intro:"Documentos que integran el oficio de solicitud dirigido al titular de la DGCES. En apertura de subsede y en rotación de campo se consideran los puntos 3, 4 y 8.",
+  items:[
+    {t:"Oficio de la IES comprometiéndose a otorgar el aval académico, con el nombre completo del curso.", ref:"DGCES · Punto 1",
+     docs:["Oficio en papel membretado con firma del titular de la IES","Nombre exacto del curso conforme al plan de estudios","Acuse de recepción"]},
+    {t:"Programa académico de la IES que otorgará el aval.", ref:"DGCES · Punto 2",
+     docs:["Plan de estudios completo y sellado","Mapa curricular","Perfil de ingreso y egreso"]},
+    {t:"Diagnóstico situacional de la unidad en el formato oficial de la DGCES, con firmas de las autoridades.", ref:"DGCES · Punto 3",
+     docs:["Formato oficial DGCES completo","Hoja de firmas de director y jefe de enseñanza","Anexos de productividad e infraestructura"]},
+    {t:"Programa Operativo del curso propuesto en el formato oficial de la DGCES.", ref:"DGCES · Punto 4",
+     docs:["Formato oficial DGCES completo","Firmas del profesor titular y jefe de enseñanza","Anexos del Apéndice A"]},
+    {t:"Nombramiento del profesor titular con reconocimiento del aval académico.", ref:"DGCES · Punto 5",
+     docs:["Nombramiento emitido por la IES","Documentación probatoria del perfil","Acuse institucional"]},
+    {t:"Documento que especifique los convenios de las unidades subsedes propuestas, apegadas al Programa Operativo.", ref:"DGCES · Punto 6",
+     docs:["Relación de subsedes con vigencia de convenio","Copia de cada convenio o carta de intención","Concordancia con las rotaciones del PO"]},
+    {t:"Cuando aplique: oficio con número de residentes por ciclo y origen de los recursos financieros de la beca durante toda la formación.", ref:"DGCES · Punto 7",
+     docs:["Oficio de suficiencia presupuestal","Desglose por ciclo y por año de formación","Firma del área administrativa o financiera"]},
+    {t:"Oficio de solicitud dirigido al titular de la DGCES para evaluar la factibilidad y emitir el pronunciamiento.", ref:"DGCES · Punto 8",
+     docs:["Oficio de solicitud firmado por el titular de la institución de salud","Índice del expediente entregado","Acuse de recepción de la DGCES"]},
+    {t:"Convenio específico de colaboración entre la institución de salud y la universidad, vigente.", ref:"CIFRHS · Legal",
+     docs:["Convenio específico firmado","Constancia de vigencia","Registro en el área jurídica"]},
+    {t:"Dictamen o pronunciamiento de la CIFRHS sobre el campo clínico y el cupo de becas.", ref:"CIFRHS · Legal",
+     docs:["Dictamen o pronunciamiento previo","Oficio de asignación de plazas","Constancia de registro en el Sistema Nacional"]},
+    {t:"Estudio de justificación técnica: demanda epidemiológica, déficit de especialistas y pertinencia regional.", ref:"CIFRHS · Legal",
+     docs:["Documento de justificación con fuentes citadas","Panorama epidemiológico estatal","Análisis de oferta y demanda de especialistas en Chihuahua"]}
+  ]
+},
+{
+  id:"inc", num:"I", title:"Criterios particulares para incremento de plazas",
+  sub:"Aplica sólo cuando el trámite es de incremento",
+  intro:"Marque <b>No aplica</b> en toda la sección si la solicitud no corresponde a un incremento de plazas.",
+  items:[
+    {t:"La relación tutor-alumno se mantiene dentro de lo permitido después del incremento.", ref:"CIFRHS · Ratio",
+     docs:["Cálculo comparativo antes/después del incremento","Plantilla docente proyectada","Nombramientos adicionales gestionados"]},
+    {t:"El incremento no reduce la cuota mínima individual de casos o procedimientos del grupo ya asignado.", ref:"CIFRHS · Suficiencia",
+     docs:["Proyección de casuística per cápita","Matriz de correlación actualizada","Oficio del jefe de servicio"]},
+    {t:"Constancia de suficiencia presupuestal para el pago de becas, uniformes y prestaciones, emitida por el área administrativa.", ref:"CIFRHS · Presupuesto",
+     docs:["Constancia de suficiencia presupuestal","Desglose del costo anual por residente","Firma del subdirector administrativo"]},
+    {t:"Capacidad de bienestar (dormitorios, lockers, alimentación) suficiente para la matrícula ampliada.", ref:"NOM 9.10 · 9.13",
+     docs:["Cédula de capacidad de áreas de bienestar","Proyección de ocupación con la nueva matrícula","Plan de ampliación si aplica"]}
+  ]
+}
+];
+
+/* Apéndice A — Programa Operativo (19 secciones) */
+const PO19 = [
+  ["A.1","Índice"],
+  ["A.2","Datos generales (sede, subsedes, cuerpo directivo y docente)"],
+  ["A.3","Objetivo del programa operativo"],
+  ["A.4","Temario por unidad didáctica y bibliografía"],
+  ["A.5","Listado de alumnos por grado"],
+  ["A.6","Guardias (residente, grado, servicio, fecha y horario)"],
+  ["A.7","Periodos vacacionales calendarizados"],
+  ["A.8","Rotación mensual por grado en la sede"],
+  ["A.9","Rotación por grado en subsedes"],
+  ["A.10","Actividades clínicas y académicas diarias por servicio"],
+  ["A.11","Actividades clínicas por servicio y grado (objetivos, habilidades)"],
+  ["A.12","Programación anual de cursos y congresos"],
+  ["A.13","Protocolos de investigación (último grado)"],
+  ["A.14","Evaluación (procedimientos, instrumentos, porcentajes)"],
+  ["A.15","Rotación de campo"],
+  ["A.16","Centro de información y documentación"],
+  ["A.17","Bibliografía básica sugerida"],
+  ["A.18","Otros datos"],
+  ["A.19","Anexos (NOM, reglamentos, programa académico)"]
+];
+
+/* ============================================================
+   Estado / almacenamiento
+   ============================================================ */
+const LS_KEY = "cifrhs_hce_v1";
+let DB = {records:[], currentId:null};
+let saveTimer = null;
+
+function uid(){return "r"+Date.now().toString(36)+Math.random().toString(36).slice(2,6);}
+
+function blankRecord(esp){
+  return {
+    id:uid(),
+    meta:{
+      especialidad:esp||"", ciclo:"2026-2027", unidad:"Hospital Central del Estado de Chihuahua",
+      entidad:"Chihuahua", institucion:"ICHISAL / Servicios de Salud de Chihuahua",
+      ies:"Universidad Autónoma de Chihuahua", duracion:"", profesor:"", par:"", fecha:"",
+      tipo:"Evaluación interna (autodiagnóstico)", residentes:"", plazas:""
+    },
+    items:{}, po:{},
+    matrix:[{proc:"",vol:"",min:"",res:""}],
+    docentes:[{nom:"",grado:"Titular",ced:"",cert:"no",doc:"no",aval:"no"}],
+    campos:[{nom:"Hospital Central del Estado de Chihuahua",tipo:"Sede",conv:"no",vig:"",po:"no",dx:"no",res:"",tit:"",adj:""}]
+  };
+}
+function seedRecords(){
+  return ESPECIALIDADES.map(e=>blankRecord(e.n));
+}
+function loadDB(){
+  try{const raw=localStorage.getItem(LS_KEY);if(raw)DB=JSON.parse(raw);}catch(e){DB={records:[],currentId:null};}
+  if(!DB.records||!DB.records.length){const rs=seedRecords();DB={records:rs,currentId:rs[0].id};}
+  DB.records.forEach(r=>{
+    if(!r.campos)r.campos=[{nom:"",tipo:"Sede",conv:"no",vig:"",po:"no",dx:"no",res:"",tit:"",adj:""}];
+    if(!r.matrix)r.matrix=[{proc:"",vol:"",min:"",res:""}];
+    if(!r.docentes)r.docentes=[{nom:"",grado:"Titular",ced:"",cert:"no",doc:"no",aval:"no"}];
+    if(!r.items)r.items={};
+    if(!r.po)r.po={};
+  });
+  if(!DB.records.some(r=>r.id===DB.currentId))DB.currentId=DB.records[0].id;
+}
+function saveDB(){
+  try{localStorage.setItem(LS_KEY,JSON.stringify(DB));flashSaved();}
+  catch(e){const d=document.getElementById("saveDot");if(d)d.textContent="Sin guardar (almacenamiento no disponible)";}
+}
+function flashSaved(){
+  const d=document.getElementById("saveDot");if(!d)return;
+  d.textContent="Guardando…";
+  clearTimeout(saveTimer);
+  saveTimer=setTimeout(()=>{d.textContent="Guardado "+new Date().toLocaleTimeString("es-MX",{hour:"2-digit",minute:"2-digit"});},350);
+}
+function cur(){return DB.records.find(r=>r.id===DB.currentId)||DB.records[0];}
+function queueSave(){clearTimeout(saveTimer);saveTimer=setTimeout(saveDB,300);}
+function flushSave(){clearTimeout(saveTimer);try{localStorage.setItem(LS_KEY,JSON.stringify(DB));}catch(e){}}
+window.addEventListener("beforeunload",flushSave);
+document.addEventListener("visibilitychange",()=>{if(document.visibilityState==="hidden")flushSave();});
+
+function esc(s){return String(s==null?"":s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));}
+
+/* ============================================================
+   Render de secciones
+   ============================================================ */
+function itemKey(secId,i){return secId+"_"+i;}
+
+function renderSections(){
+  const host=document.getElementById("sections");
+  host.innerHTML="";
+  MODEL.forEach(sec=>{
+    const wrap=document.createElement("section");
+    wrap.className="section"+(sec.flag?" flag":"");
+    wrap.id="sec-"+sec.id;
+
+    const head=document.createElement("button");
+    head.className="sec-head";head.type="button";head.setAttribute("aria-expanded","true");
+    head.innerHTML=
+      '<span class="sec-num">'+sec.num+'</span>'+
+      '<span class="sec-titles"><h2>'+sec.title+'</h2><p>'+sec.sub+'</p></span>'+
+      '<span class="sec-meta">'+
+        '<span class="mini-track"><span class="mini-fill" id="mini-'+sec.id+'" style="width:0%"></span></span>'+
+        '<span class="sec-pct" id="pct-'+sec.id+'">—</span>'+
+        '<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>'+
+      '</span>';
+
+    const body=document.createElement("div");body.className="sec-body";
+    let html='<div class="sec-intro">'+sec.intro+'</div>';
+    sec.items.forEach((it,i)=>{html+=itemHTML(sec,i,it);});
+    body.innerHTML=html;
+
+    if(sec.matrix)body.appendChild(matrixBlock());
+    if(sec.docentes)body.appendChild(docentesBlock());
+    if(sec.campos)body.appendChild(camposBlock());
+    if(sec.po)body.appendChild(poBlock());
+
+    head.addEventListener("click",()=>{
+      const open=head.getAttribute("aria-expanded")==="true";
+      head.setAttribute("aria-expanded",String(!open));
+      body.style.display=open?"none":"block";
+    });
+
+    wrap.appendChild(head);wrap.appendChild(body);host.appendChild(wrap);
+  });
+  bindItemEvents();
+}
+
+function itemHTML(sec,i,it){
+  const key=itemKey(sec.id,i);
+  const btns=STATUS.map(s=>'<button type="button" class="sbtn" data-v="'+s.v+'" data-key="'+key+'" data-status="'+s.v+'">'+s.label+'</button>').join("");
+  const docs=(it.docs&&it.docs.length)
+    ? '<details class="ev"'+(sec.resp?" open":"")+'><summary>Documentos o procesos probatorios sugeridos ('+it.docs.length+')</summary><ul>'+it.docs.map(d=>"<li>"+d+"</li>").join("")+'</ul></details>'
+    : "";
+  const resp=sec.resp
+    ? '<div class="nf wide"><span>Respuesta / sustento de la institución educativa</span><textarea data-note="rs" data-key="'+key+'" placeholder="Describa cómo se cumple el criterio: documento presentado, folio, fecha de vigencia, sede o subsede a la que corresponde…"></textarea></div>'
+    : "";
+  return '<div class="item" id="item-'+key+'">'+
+    '<div class="item-top">'+
+      '<span class="item-idx mono">'+sec.num+"."+(i+1)+'</span>'+
+      '<div class="item-main">'+
+        '<div class="item-txt">'+it.t+'</div>'+
+        (it.h?'<div class="item-hint">'+it.h+'</div>':"")+
+        '<span class="ref">'+it.ref+'</span>'+
+        docs+
+      '</div>'+
+      '<div class="statusset" role="group" aria-label="Estado del criterio">'+btns+'</div>'+
+    '</div>'+
+    '<div class="item-note">'+
+      resp+
+      '<div class="nf"><span>Evidencia presentada</span><textarea data-note="ev" data-key="'+key+'" placeholder="Documento, folio, ubicación, cifra observada…"></textarea></div>'+
+      '<div class="nf"><span>Observaciones y acciones de mejora</span><textarea data-note="ob" data-key="'+key+'" placeholder="Hallazgos, recomendaciones, responsable y fecha compromiso…"></textarea></div>'+
+    '</div>'+
+  '</div>';
+}
+
+/* ---------- Matriz de casuística ---------- */
+function matrixBlock(){
+  const f=document.createElement("div");
+  f.innerHTML=
+    '<div class="sub-head">Matriz de correlación casuística / plan de estudios<span>Agregue los procedimientos o patologías centinela que el programa académico exige para esta especialidad.</span></div>'+
+    '<div class="tblwrap"><table class="editable"><thead><tr>'+
+      '<th style="min-width:220px">Procedimiento, patología o actividad</th>'+
+      '<th>Volumen anual disponible</th><th>Mínimo por residente (plan)</th><th>N.º residentes</th>'+
+      '<th>Requerido</th><th>Suficiencia</th><th></th>'+
+    '</tr></thead><tbody id="matrixBody"></tbody></table></div>'+
+    '<div class="tbl-actions">'+
+      '<button type="button" class="addrow" id="addMatrix"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>Agregar renglón</button>'+
+      '<span class="tbl-note">La suficiencia se calcula automáticamente: <b>disponible ≥ mínimo × n.º residentes</b>. Los mínimos deben tomarse del plan de estudios avalado, no estimarse.</span>'+
+    '</div>';
+  return f;
+}
+function renderMatrix(){
+  const body=document.getElementById("matrixBody");if(!body)return;
+  const r=cur();body.innerHTML="";
+  r.matrix.forEach((row,i)=>{
+    const tr=document.createElement("tr");
+    tr.innerHTML=
+      '<td><input value="'+esc(row.proc)+'" data-mx="proc" data-i="'+i+'" placeholder="Procedimiento o patología"></td>'+
+      '<td><input class="num" value="'+esc(row.vol)+'" data-mx="vol" data-i="'+i+'" inputmode="numeric" placeholder="0"></td>'+
+      '<td><input class="num" value="'+esc(row.min)+'" data-mx="min" data-i="'+i+'" inputmode="numeric" placeholder="0"></td>'+
+      '<td><input class="num" value="'+esc(row.res)+'" data-mx="res" data-i="'+i+'" inputmode="numeric" placeholder="0"></td>'+
+      '<td class="mono req" style="text-align:right;color:var(--ink-3)">—</td>'+
+      '<td class="suf none">—</td>'+
+      '<td><button type="button" class="rowdel" data-delmx="'+i+'" title="Eliminar renglón" aria-label="Eliminar renglón">×</button></td>';
+    body.appendChild(tr);
+  });
+  updateMatrixCalc();
+}
+/* Recalcula sólo las celdas derivadas: no reconstruye la tabla ni roba el foco. */
+function updateMatrixCalc(){
+  const body=document.getElementById("matrixBody");if(!body)return;
+  const r=cur();
+  [...body.rows].forEach((tr,i)=>{
+    const row=r.matrix[i];if(!row)return;
+    const vol=parseFloat(row.vol),min=parseFloat(row.min),res=parseFloat(row.res);
+    const req=(!isNaN(min)&&!isNaN(res))?min*res:null;
+    let suf="—",cls="suf none";
+    if(req!==null&&!isNaN(vol)){if(vol>=req){suf="Suficiente";cls="suf ok";}else{suf="Insuficiente";cls="suf bad";}}
+    const qc=tr.querySelector("td.req"),sc=tr.querySelector("td.suf");
+    if(qc)qc.textContent=(req!==null?req:"—");
+    if(sc){sc.className=cls;sc.textContent=suf;}
+  });
+}
+
+/* ---------- Plantilla docente ---------- */
+function docentesBlock(){
+  const f=document.createElement("div");
+  f.innerHTML=
+    '<div class="sub-head">Plantilla docente propuesta<span>Registre al profesor titular y a cada adjunto con sus documentos probatorios.</span></div>'+
+    '<div class="tblwrap"><table class="editable"><thead><tr>'+
+      '<th style="min-width:180px">Profesor</th><th>Cargo</th><th>Cédula de especialidad</th>'+
+      '<th>Certificación vigente</th><th>Formación docente</th><th>Nombramiento IES</th><th></th>'+
+    '</tr></thead><tbody id="docBody"></tbody></table></div>'+
+    '<div class="tbl-actions">'+
+      '<button type="button" class="addrow" id="addDoc"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>Agregar profesor</button>'+
+      '<span class="tbl-note">Los campos en <b>En trámite</b> deben acompañarse del acuse correspondiente en el expediente.</span>'+
+    '</div>';
+  return f;
+}
+function ynSel(val,attr,i,ds){
+  const o=(v,l)=>'<option value="'+v+'"'+(val===v?" selected":"")+'>'+l+'</option>';
+  return '<select data-'+ds+'="'+attr+'" data-i="'+i+'">'+o("si","Sí")+o("no","No")+o("tramite","En trámite")+'</select>';
+}
+function renderDoc(){
+  const body=document.getElementById("docBody");if(!body)return;
+  const r=cur();body.innerHTML="";
+  r.docentes.forEach((row,i)=>{
+    const tr=document.createElement("tr");
+    tr.innerHTML=
+      '<td><input value="'+esc(row.nom)+'" data-dc="nom" data-i="'+i+'" placeholder="Nombre completo"></td>'+
+      '<td><select data-dc="grado" data-i="'+i+'">'+
+        '<option'+(row.grado==="Titular"?" selected":"")+'>Titular</option>'+
+        '<option'+(row.grado==="Adjunto"?" selected":"")+'>Adjunto</option>'+
+        '<option'+(row.grado==="Auxiliar/Invitado"?" selected":"")+'>Auxiliar/Invitado</option>'+
+      '</select></td>'+
+      '<td><input value="'+esc(row.ced)+'" data-dc="ced" data-i="'+i+'" placeholder="N.º de cédula"></td>'+
+      '<td>'+ynSel(row.cert,"cert",i,"dc")+'</td>'+
+      '<td>'+ynSel(row.doc,"doc",i,"dc")+'</td>'+
+      '<td>'+ynSel(row.aval,"aval",i,"dc")+'</td>'+
+      '<td><button type="button" class="rowdel" data-deldc="'+i+'" title="Eliminar" aria-label="Eliminar profesor">×</button></td>';
+    body.appendChild(tr);
+  });
+}
+
+/* ---------- Campos clínicos (sedes y subsedes) ---------- */
+function camposBlock(){
+  const f=document.createElement("div");
+  f.innerHTML=
+    '<div class="sub-head">Matriz de campos clínicos: sedes y subsedes<span>Un renglón por escenario de práctica. La columna <b>1 titular + 1 adjunto / 10 residentes</b> se calcula automáticamente por campo clínico.</span></div>'+
+    '<div class="tblwrap"><table class="editable" style="min-width:900px"><thead><tr>'+
+      '<th style="min-width:200px">Establecimiento / escenario</th><th>Carácter</th>'+
+      '<th>Convenio vigente</th><th>Vigencia hasta</th><th>PO vigente</th><th>Dx situacional</th>'+
+      '<th>Residentes</th><th>Titulares</th><th>Adjuntos</th><th>Relación docente</th><th></th>'+
+    '</tr></thead><tbody id="camposBody"></tbody></table></div>'+
+    '<div class="tbl-actions">'+
+      '<button type="button" class="addrow" id="addCampo"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>Agregar campo clínico</button>'+
+      '<span class="tbl-note">Criterio C5.8: cada sede y subsede requiere <b>al menos un titular y un adjunto por cada 10 residentes</b>. C5.14: se requiere <b>al menos una sede y una subsede</b> con convenio vigente.</span>'+
+    '</div>'+
+    '<div class="tbl-actions" style="padding-top:0"><span class="tbl-note" id="camposVeredicto"></span></div>';
+  return f;
+}
+function renderCampos(){
+  const body=document.getElementById("camposBody");if(!body)return;
+  const r=cur();body.innerHTML="";
+  r.campos.forEach((row,i)=>{
+    const tr=document.createElement("tr");
+    tr.innerHTML=
+      '<td><input value="'+esc(row.nom)+'" data-cp="nom" data-i="'+i+'" placeholder="Nombre del establecimiento"></td>'+
+      '<td><select data-cp="tipo" data-i="'+i+'">'+
+        '<option'+(row.tipo==="Sede"?" selected":"")+'>Sede</option>'+
+        '<option'+(row.tipo==="Subsede"?" selected":"")+'>Subsede</option>'+
+        '<option'+(row.tipo==="Rotación de campo"?" selected":"")+'>Rotación de campo</option>'+
+      '</select></td>'+
+      '<td>'+ynSel(row.conv,"conv",i,"cp")+'</td>'+
+      '<td><input type="date" value="'+esc(row.vig)+'" data-cp="vig" data-i="'+i+'"></td>'+
+      '<td>'+ynSel(row.po,"po",i,"cp")+'</td>'+
+      '<td>'+ynSel(row.dx,"dx",i,"cp")+'</td>'+
+      '<td><input class="num" value="'+esc(row.res)+'" data-cp="res" data-i="'+i+'" inputmode="numeric" placeholder="0"></td>'+
+      '<td><input class="num" value="'+esc(row.tit)+'" data-cp="tit" data-i="'+i+'" inputmode="numeric" placeholder="0"></td>'+
+      '<td><input class="num" value="'+esc(row.adj)+'" data-cp="adj" data-i="'+i+'" inputmode="numeric" placeholder="0"></td>'+
+      '<td class="suf none">—</td>'+
+      '<td><button type="button" class="rowdel" data-delcp="'+i+'" title="Eliminar" aria-label="Eliminar campo clínico">×</button></td>';
+    body.appendChild(tr);
+  });
+  updateCamposCalc();
+}
+/* Recalcula sólo la relación docente y el veredicto de C5.14. */
+function updateCamposCalc(){
+  const body=document.getElementById("camposBody");if(!body)return;
+  const r=cur();let sedes=0,subsedes=0;
+  [...body.rows].forEach((tr,i)=>{
+    const row=r.campos[i];if(!row)return;
+    const res=parseFloat(row.res),tit=parseFloat(row.tit),adj=parseFloat(row.adj);
+    let rel="—",cls="suf none";
+    if(!isNaN(res)&&res>0&&!isNaN(tit)&&!isNaN(adj)){
+      const need=Math.max(1,Math.ceil(res/10));
+      if(tit>=need&&adj>=need){rel="Cumple ("+need+"+"+need+")";cls="suf ok";}
+      else{rel="Insuficiente (req. "+need+"+"+need+")";cls="suf bad";}
+    }
+    if(row.conv==="si"){if(row.tipo==="Sede")sedes++;else if(row.tipo==="Subsede")subsedes++;}
+    const c=tr.querySelector("td.suf");
+    if(c){c.className=cls;c.textContent=rel;}
+  });
+  const v=document.getElementById("camposVeredicto");
+  if(v){
+    const ok=sedes>=1&&subsedes>=1;
+    v.innerHTML='Con convenio vigente registrado: <b>'+sedes+'</b> sede(s) y <b>'+subsedes+'</b> subsede(s). '+
+      '<span class="pill '+(ok?"ok":"bad")+'">'+(ok?"Satisface el mínimo de C5.14":"No satisface el mínimo de C5.14")+'</span>';
+  }
+}
+
+/* ---------- Checklist Programa Operativo ---------- */
+function poBlock(){
+  const f=document.createElement("div");
+  const rows=PO19.map(([c,d])=>
+    '<div class="item" style="padding:11px 20px" id="po-'+c+'">'+
+      '<div class="item-top">'+
+        '<span class="item-idx mono">'+c+'</span>'+
+        '<div class="item-main"><div class="item-txt" style="font-size:13.5px">'+d+'</div></div>'+
+        '<div class="statusset">'+
+          '<button type="button" class="sbtn" data-v="ok" data-po="'+c+'" data-status="ok">Incluido</button>'+
+          '<button type="button" class="sbtn" data-v="warn" data-po="'+c+'" data-status="warn">Parcial</button>'+
+          '<button type="button" class="sbtn" data-v="bad" data-po="'+c+'" data-status="bad">Ausente</button>'+
+        '</div>'+
+      '</div>'+
+    '</div>').join("");
+  f.innerHTML='<div class="sec-intro" style="border-top:1px solid var(--line-2)"><b>Checklist del Programa Operativo</b> — Apéndice A informativo de la NOM-001-SSA-2023 (19 secciones). No pondera en el porcentaje global; sirve como cotejo de integración documental.</div>'+rows;
+  return f;
+}
+
+/* ============================================================
+   Binding
+   ============================================================ */
+function bindItemEvents(){
+  document.querySelectorAll(".sbtn[data-key]").forEach(b=>{
+    b.addEventListener("click",()=>{
+      const key=b.dataset.key,st=b.dataset.status,r=cur();
+      const rec=r.items[key]||(r.items[key]={});
+      rec.status=(rec.status===st)?"":st;
+      queueSave();refreshItem(key);computeScores();
+    });
+  });
+  document.querySelectorAll(".sbtn[data-po]").forEach(b=>{
+    b.addEventListener("click",()=>{
+      const c=b.dataset.po,st=b.dataset.status,r=cur();
+      r.po[c]=(r.po[c]===st)?"":st;queueSave();refreshPO(c);
+    });
+  });
+  document.querySelectorAll("textarea[data-note]").forEach(t=>{
+    t.addEventListener("input",()=>{
+      const key=t.dataset.key,f=t.dataset.note,r=cur();
+      const rec=r.items[key]||(r.items[key]={});
+      rec[f]=t.value;queueSave();
+    });
+  });
+}
+
+function refreshItem(key){
+  const r=cur(),rec=r.items[key]||{};
+  const el=document.getElementById("item-"+key);if(!el)return;
+  el.querySelectorAll(".sbtn[data-key]").forEach(b=>{b.dataset.on=(b.dataset.status===rec.status)?"1":"0";});
+  el.classList.remove("state-ok","state-warn","state-bad");
+  if(rec.status==="ok")el.classList.add("state-ok");
+  else if(rec.status==="warn")el.classList.add("state-warn");
+  else if(rec.status==="bad")el.classList.add("state-bad");
+  el.querySelectorAll("textarea[data-note]").forEach(t=>{t.value=rec[t.dataset.note]||"";});
+}
+function refreshPO(c){
+  const r=cur();const el=document.getElementById("po-"+c);if(!el)return;
+  el.querySelectorAll(".sbtn[data-po]").forEach(b=>{b.dataset.on=(b.dataset.status===r.po[c])?"1":"0";});
+  el.classList.remove("state-ok","state-warn","state-bad");
+  if(r.po[c]==="ok")el.classList.add("state-ok");
+  else if(r.po[c]==="warn")el.classList.add("state-warn");
+  else if(r.po[c]==="bad")el.classList.add("state-bad");
+}
+
+function refreshAll(){
+  const r=cur();
+  document.querySelectorAll("[data-meta]").forEach(el=>{el.value=r.meta[el.dataset.meta]||"";});
+  updateEspBadge();
+  MODEL.forEach(sec=>sec.items.forEach((it,i)=>refreshItem(itemKey(sec.id,i))));
+  PO19.forEach(p=>refreshPO(p[0]));
+  renderMatrix();renderDoc();renderCampos();
+  const sel=document.getElementById("recordSel");
+  sel.innerHTML=DB.records.map(rr=>'<option value="'+rr.id+'"'+(rr.id===DB.currentId?" selected":"")+'>'+esc(recLabel(rr))+'</option>').join("");
+  computeScores();
+}
+function recLabel(r){
+  const n=r.meta.especialidad||"(sin especialidad)";
+  const c=r.meta.ciclo?" · "+r.meta.ciclo:"";
+  return n+c;
+}
+function updateEspBadge(){
+  const r=cur(),b=document.getElementById("entradaBadge"),note=document.getElementById("espNote");
+  const e=ESPECIALIDADES.find(x=>x.n===r.meta.especialidad);
+  if(!e){b.textContent="—";b.className="badge";note.textContent="Seleccione la residencia a evaluar.";return;}
+  b.textContent=e.e;b.className="badge"+(e.pre?" alt":"");
+  note.textContent=e.pre?("Requiere especialidad previa en "+e.pre+"."):"Especialidad de entrada directa.";
+}
+
+/* ============================================================
+   Puntuación
+   ============================================================ */
+function scoreRecord(r){
+  let gSum=0,gCount=0,ok=0,warn=0,bad=0,pend=0,na=0;
+  const bySec={};
+  MODEL.forEach(sec=>{
+    let sSum=0,sCount=0;
+    sec.items.forEach((it,i)=>{
+      const st=(r.items[itemKey(sec.id,i)]||{}).status||"";
+      if(st==="ok")ok++;else if(st==="warn")warn++;else if(st==="bad")bad++;
+      else if(st==="na")na++;else pend++;
+      const w=WEIGHT[st];
+      if(w!==null&&st!=="na"&&st!==""){sSum+=w;sCount++;gSum+=w;gCount++;}
+    });
+    bySec[sec.id]=sCount?Math.round(sSum/sCount*100):null;
+  });
+  return {pct:gCount?Math.round(gSum/gCount*100):null,evaluados:gCount,ok,warn,bad,pend,na,bySec};
+}
+function totalItems(){return MODEL.reduce((a,s)=>a+s.items.length,0);}
+
+function computeScores(){
+  const r=cur(),s=scoreRecord(r);
+  MODEL.forEach(sec=>{
+    const pct=s.bySec[sec.id];
+    const pctEl=document.getElementById("pct-"+sec.id),miniEl=document.getElementById("mini-"+sec.id);
+    if(pctEl)pctEl.textContent=pct===null?"—":pct+"%";
+    if(miniEl)miniEl.style.width=(pct||0)+"%";
+  });
+  const g=s.pct===null?0:s.pct;
+  document.getElementById("globalPct").textContent=g+"%";
+  const arc=document.getElementById("donutArc"),circ=2*Math.PI*56;
+  arc.style.strokeDashoffset=circ*(1-g/100);
+  arc.style.stroke=g>=85?"var(--ok)":g>=60?"var(--warn)":g>0?"var(--accent)":"var(--surface-3)";
+  document.getElementById("tOk").textContent=s.ok;
+  document.getElementById("tWarn").textContent=s.warn;
+  document.getElementById("tBad").textContent=s.bad;
+  document.getElementById("tPend").textContent=s.pend;
+  document.getElementById("globalCaption").textContent=s.evaluados+" de "+totalItems()+" reactivos ponderados"+(s.na?" · "+s.na+" no aplican":"");
+  renderCedbars(s);
+  renderComparativo();
+}
+function renderCedbars(s){
+  const host=document.getElementById("cedbars");
+  host.innerHTML=MODEL.map(sec=>{
+    const pct=s.bySec[sec.id];
+    return '<div class="cedbar" data-goto="sec-'+sec.id+'" role="button" tabindex="0">'+
+      '<span class="cb-name"><b>'+sec.num+'</b>'+sec.title+'</span>'+
+      '<span class="cb-pct">'+(pct===null?"—":pct+"%")+'</span>'+
+      '<span class="track"><span class="fill" style="width:'+(pct||0)+'%"></span></span>'+
+    '</div>';
+  }).join("");
+  host.querySelectorAll(".cedbar").forEach(b=>{
+    const go=()=>{const el=document.getElementById(b.dataset.goto);if(el)el.scrollIntoView({behavior:"smooth",block:"start"});};
+    b.addEventListener("click",go);
+    b.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();go();}});
+  });
+}
+function renderComparativo(){
+  const body=document.getElementById("cmpBody");if(!body)return;
+  body.innerHTML=DB.records.map(r=>{
+    const s=scoreRecord(r);
+    const pct=s.pct===null?0:s.pct;
+    let cls="",lbl="Sin capturar";
+    if(s.evaluados===0){cls="";lbl="Sin capturar";}
+    else if(pct>=85){cls="ok";lbl="Satisfactorio";}
+    else if(pct>=60){cls="warn";lbl="Con observaciones";}
+    else{cls="bad";lbl="Crítico";}
+    return '<tr data-rec="'+r.id+'"'+(r.id===DB.currentId?' class="active"':"")+'>'+
+      '<td><div class="cmp-name">'+esc(r.meta.especialidad||"(sin especialidad)")+'</div><div class="cmp-sub">'+esc(r.meta.ciclo||"—")+" · "+esc(r.meta.tipo||"")+'</div></td>'+
+      '<td><span class="minibar"><i style="width:'+pct+'%"></i></span></td>'+
+      '<td class="cmp-pct" style="text-align:right">'+(s.evaluados?pct+"%":"—")+'</td>'+
+      '<td class="cmp-pct" style="text-align:right;color:var(--ink-3)">'+s.evaluados+"/"+totalItems()+'</td>'+
+      '<td class="cmp-pct" style="text-align:right;color:var(--ink-3)">'+s.pend+'</td>'+
+      '<td><span class="pill '+cls+'">'+lbl+'</span></td>'+
+    '</tr>';
+  }).join("");
+  body.querySelectorAll("tr[data-rec]").forEach(tr=>{
+    tr.addEventListener("click",()=>{
+      DB.currentId=tr.dataset.rec;saveDB();refreshAll();
+      document.getElementById("identificacion").scrollIntoView({behavior:"smooth",block:"start"});
+    });
+  });
+}
+
+/* ============================================================
+   Eventos estáticos
+   ============================================================ */
+function bindStatic(){
+  const espSel=document.getElementById("f_esp");
+  espSel.innerHTML='<option value="">— Seleccione —</option>'+ESPECIALIDADES.map(e=>'<option>'+e.n+'</option>').join("");
+
+  const idform=document.getElementById("idform");
+  const onMeta=e=>{
+    const el=e.target;if(!el.dataset||!el.dataset.meta)return;
+    cur().meta[el.dataset.meta]=el.value;queueSave();
+    if(el.dataset.meta==="especialidad")updateEspBadge();
+    if(["especialidad","ciclo","tipo"].indexOf(el.dataset.meta)>=0){updateSelLabel();renderComparativo();}
+  };
+  idform.addEventListener("input",onMeta);
+  idform.addEventListener("change",onMeta);
+
+  const sections=document.getElementById("sections");
+  const tableEdit=e=>{
+    const el=e.target,r=cur();
+    if(!el.dataset)return;
+    if(el.dataset.mx!==undefined){r.matrix[+el.dataset.i][el.dataset.mx]=el.value;updateMatrixCalc();queueSave();}
+    else if(el.dataset.dc!==undefined){r.docentes[+el.dataset.i][el.dataset.dc]=el.value;queueSave();}
+    else if(el.dataset.cp!==undefined){r.campos[+el.dataset.i][el.dataset.cp]=el.value;updateCamposCalc();queueSave();}
+  };
+  sections.addEventListener("input",tableEdit);
+  sections.addEventListener("change",e=>{if(e.target.tagName==="SELECT"||e.target.type==="date")tableEdit(e);});
+  sections.addEventListener("click",e=>{
+    const el=e.target.closest("button");if(!el)return;
+    const r=cur();
+    if(el.id==="addMatrix"){r.matrix.push({proc:"",vol:"",min:"",res:""});renderMatrix();queueSave();}
+    else if(el.id==="addDoc"){r.docentes.push({nom:"",grado:"Adjunto",ced:"",cert:"no",doc:"no",aval:"no"});renderDoc();queueSave();}
+    else if(el.id==="addCampo"){r.campos.push({nom:"",tipo:"Subsede",conv:"no",vig:"",po:"no",dx:"no",res:"",tit:"",adj:""});renderCampos();queueSave();}
+    else if(el.dataset.delmx!==undefined){r.matrix.splice(+el.dataset.delmx,1);renderMatrix();queueSave();}
+    else if(el.dataset.deldc!==undefined){r.docentes.splice(+el.dataset.deldc,1);renderDoc();queueSave();}
+    else if(el.dataset.delcp!==undefined){r.campos.splice(+el.dataset.delcp,1);renderCampos();queueSave();}
+  });
+}
+function updateSelLabel(){
+  const sel=document.getElementById("recordSel");
+  const opt=sel.querySelector('option[value="'+DB.currentId+'"]');
+  if(opt)opt.textContent=recLabel(cur());
+}
+
+/* ============================================================
+   Barra de herramientas
+   ============================================================ */
+function bindToolbar(){
+  document.getElementById("recordSel").addEventListener("change",e=>{
+    DB.currentId=e.target.value;saveDB();refreshAll();
+  });
+  document.getElementById("btnNew").addEventListener("click",()=>{
+    const r=blankRecord("");r.meta.ciclo=cur().meta.ciclo||"";
+    DB.records.push(r);DB.currentId=r.id;saveDB();refreshAll();
+    window.scrollTo({top:0,behavior:"smooth"});
+    document.getElementById("f_esp").focus();
+  });
+  document.getElementById("btnDup").addEventListener("click",()=>{
+    const clone=JSON.parse(JSON.stringify(cur()));clone.id=uid();
+    clone.meta.ciclo=(clone.meta.ciclo||"")+" (copia)";
+    DB.records.push(clone);DB.currentId=clone.id;saveDB();refreshAll();
+  });
+  document.getElementById("btnDel").addEventListener("click",()=>{
+    if(DB.records.length<=1){alert("No es posible eliminar el único registro existente.");return;}
+    if(!confirm("¿Eliminar el registro de «"+recLabel(cur())+"»? Esta acción no se puede deshacer."))return;
+    DB.records=DB.records.filter(r=>r.id!==DB.currentId);
+    DB.currentId=DB.records[0].id;saveDB();refreshAll();
+  });
+  document.getElementById("btnExport").addEventListener("click",exportJSON);
+  document.getElementById("btnImport").addEventListener("click",()=>document.getElementById("fileInput").click());
+  document.getElementById("fileInput").addEventListener("change",importJSON);
+  document.getElementById("btnPrint").addEventListener("click",()=>{
+    document.querySelectorAll(".sec-body").forEach(b=>b.style.display="block");
+    document.querySelectorAll(".sec-head").forEach(h=>h.setAttribute("aria-expanded","true"));
+    window.print();
+  });
+  document.getElementById("btnReset").addEventListener("click",()=>{
+    if(confirm("Esto borrará TODOS los registros guardados en este navegador y restaurará las 11 especialidades en blanco. ¿Continuar?")){
+      try{localStorage.removeItem(LS_KEY);}catch(e){}
+      const rs=seedRecords();DB={records:rs,currentId:rs[0].id};saveDB();refreshAll();
+    }
+  });
+  document.getElementById("btnTheme").addEventListener("click",toggleTheme);
+}
+
+async function exportJSON(){
+  const data=JSON.stringify(DB,null,2);
+  const filename="Cedula_CIFRHS_HCE_"+(cur().meta.ciclo||"registro").replace(/[^\w\-]+/g,"_")+".json";
+  try{
+    if(window.claude&&typeof window.claude.use==="function"){
+      const dl=await window.claude.use("downloads");
+      if(dl){
+        try{await dl.save({filename,data});}
+        catch(err){if(err&&err.code!=="declined")alert("No se pudo exportar: "+(err.message||err.code));}
+        return;
+      }
+    }
+  }catch(e){/* respaldo por blob */}
+  const blob=new Blob([data],{type:"application/json"});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement("a");
+  a.href=url;a.download=filename;document.body.appendChild(a);a.click();
+  setTimeout(()=>{URL.revokeObjectURL(url);a.remove();},100);
+}
+function importJSON(e){
+  const file=e.target.files[0];if(!file)return;
+  const rd=new FileReader();
+  rd.onload=()=>{
+    try{
+      const obj=JSON.parse(rd.result);
+      const recs=Array.isArray(obj)?obj:(obj.records?obj.records:[obj]);
+      let n=0;
+      recs.forEach(rec=>{
+        if(rec&&rec.meta){
+          rec.id=uid();
+          if(!rec.campos)rec.campos=[{nom:"",tipo:"Sede",conv:"no",vig:"",po:"no",dx:"no",res:"",tit:"",adj:""}];
+          if(!rec.matrix)rec.matrix=[{proc:"",vol:"",min:"",res:""}];
+          if(!rec.docentes)rec.docentes=[{nom:"",grado:"Titular",ced:"",cert:"no",doc:"no",aval:"no"}];
+          if(!rec.items)rec.items={};
+          if(!rec.po)rec.po={};
+          DB.records.push(rec);DB.currentId=rec.id;n++;
+        }
+      });
+      saveDB();refreshAll();
+      alert(n?("Se importaron "+n+" registro(s)."):"El archivo no contenía registros válidos.");
+    }catch(err){alert("No se pudo leer el archivo: "+err.message);}
+    e.target.value="";
+  };
+  rd.readAsText(file);
+}
+
+/* ---------- Tema ---------- */
+function currentTheme(){
+  const t=document.documentElement.getAttribute("data-theme");
+  if(t)return t;
+  return window.matchMedia&&window.matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light";
+}
+function toggleTheme(){
+  const next=currentTheme()==="dark"?"light":"dark";
+  document.documentElement.setAttribute("data-theme",next);
+  try{localStorage.setItem("cifrhs_theme",next);}catch(e){}
+  setThemeIcon(next);
+}
+function setThemeIcon(t){
+  const i=document.getElementById("themeIcon");if(!i)return;
+  i.innerHTML=t==="dark"
+    ? '<path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/>'
+    : '<circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4 12H2m20 0h-2m-2.5-6.5-1.4 1.4M6.9 17.1l-1.4 1.4m0-13 1.4 1.4M17.1 17.1l1.4 1.4"/>';
+}
+
+/* ============================================================
+   Inicio
+   ============================================================ */
+(function init(){
+  try{const th=localStorage.getItem("cifrhs_theme");if(th)document.documentElement.setAttribute("data-theme",th);}catch(e){}
+  setThemeIcon(currentTheme());
+  loadDB();
+  renderSections();
+  bindStatic();
+  bindToolbar();
+  refreshAll();
+})();
+</script>
+
+</body>
+</html>
